@@ -1,0 +1,30 @@
+{
+  "name": "algorithm_datastructures",
+  "version": "1.0.0",
+  "description": "a collection of algorithm and data structure problems",
+  "main": "index.html",
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha ./test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joseph-yp-kim/algorithm_datastructures.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joseph-yp-kim/algorithm_datastructures/issues"
+  },
+  "homepage": "https://github.com/joseph-yp-kim/algorithm_datastructures#readme",
+  "devDependencies": {
+    "eslint": "^3.16.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0"
+  },
+  "dependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  }
+}
