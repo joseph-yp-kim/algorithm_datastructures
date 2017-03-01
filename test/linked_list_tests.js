@@ -1,5 +1,6 @@
 const expect = require('chai').expect;
-const v = require('./../src/linked_list');
+const LinkedList = require('./../src/linked_list').ll;
+const Node = require('./../src/linked_list').nd;
 
 describe('LinkedList', () => {
   let list;

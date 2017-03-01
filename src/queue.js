@@ -12,12 +12,15 @@ Queue.prototype.enqueue = function(value) {
 };
 
 Queue.prototype.dequeue = function() {
-  const temp = this.storage[0];
-  for (let i = 0; i < this.index - 1; i += 1) {
-    this.storage[i] = this.storage[i + 1];
+  if (this.index > 0) {
+    const temp = this.storage[0];
+    for (let i = 0; i < this.index - 1; i += 1) {
+      this.storage[i] = this.storage[i + 1];
+    }
+    delete this.storage[this.index - 1];
+    this.index -= 1;
+    return temp;
   }
-  delete this.storage[this.index - 1];
-  return temp;
 };
 
 
