@@ -34,7 +34,7 @@ describe('Binary Search Tree', function() {
     // expect(binarySearchTree.contains(8)).to.equal(false);
   });
 
-  it('should execute a callback on every value in a tree using "depthFirstPre"', function(){
+  xit('should execute a callback on every value in a tree using "depthFirstPre"', function(){
     var array = [];
     var func = function(value){ array.push(value); };
     binarySearchTree.add(2);
@@ -45,7 +45,7 @@ describe('Binary Search Tree', function() {
     expect(array).to.eql([ 5, 2, 3, 7, 6 ]);
   });
 
-  it('should execute a callback on every value in a tree using "depthFirstIn"', function(){
+  xit('should execute a callback on every value in a tree using "depthFirstIn"', function(){
     var array = [];
     var func = function(value){ array.push(value); };
     binarySearchTree.add(2);
@@ -56,7 +56,7 @@ describe('Binary Search Tree', function() {
     expect(array).to.eql([2,3,5,6,7]);
   });
 
-  it('should execute a callback on every value in a tree using "depthFirstPost"', function(){
+  xit('should execute a callback on every value in a tree using "depthFirstPost"', function(){
     var array = [];
     var func = function(value){ array.push(value); };
     binarySearchTree.add(2);
@@ -67,7 +67,7 @@ describe('Binary Search Tree', function() {
     expect(array).to.eql([ 3, 2, 6, 7, 5 ]);
   });
 
-  it('should execute a callback on every value in a tree using "breadthFirst"', function(){
+  xit('should execute a callback on every value in a tree using "breadthFirst"', function(){
     var array = [];
     var func = function(value){ array.push(value); };
     binarySearchTree.add(2);
