@@ -5,10 +5,29 @@ function BinarySearchTree(value) {
 }
 
 BinarySearchTree.prototype.add = function(value) {
-
+  const node = new BinarySearchTree(value);
+  if (value < this.value) {
+    if (this.left) {
+      this.left.add(value);
+    } else {
+      this.left = node;
+    }
+  }
+  if (value > this.value) {
+    if (this.right) {
+      this.right.add(value);
+    } else {
+      this.right = node;
+    }
+  }
+  return;
 };
 
 BinarySearchTree.prototype.contains = function(value) {
+  if (value === this.value) return true;
+  if (value < this.value && this.left) return this.left.contains(value);
+  if (value > this.value && this.right) return this.right.contains(value);
+  return false;
 };
 
 // applies the callback in the order of depth first (preorder)
