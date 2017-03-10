@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const repeatNumber = require('./../src/repeat_number');
 
-describe('String Transformer', () => {
+describe('Repeat Number', () => {
   let arr1, arr2, arr3, arr4;
 
   beforeEach(() => {
