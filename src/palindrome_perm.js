@@ -9,7 +9,6 @@ function palinPerm(str) {
   let newStr = str.replace(/ /g,'');
   newStr = newStr.toLowerCase();
   let ordered = newStr.split('').sort().join('');
-  console.log(ordered);
   // loop thru ordered string incrementing by 1
   for (let i = 0; i < ordered.length; i += 1) {
     // check if current character is equal to the next character
