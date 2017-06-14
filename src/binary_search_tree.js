@@ -63,7 +63,8 @@ BinarySearchTree.prototype.breadthFirst = function(callback) {
 // Extra Bonus
 // Return the minimum stored value
 BinarySearchTree.prototype.min = function() {
-
+  if (this.left) return this.left.min();
+  else return this.value;
 };
 
 // Extra Bonus
