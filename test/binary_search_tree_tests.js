@@ -2,10 +2,11 @@ const expect = require('chai').expect;
 const BinarySearchTree = require('./../src/binary_search_tree');
 
 describe('Binary Search Tree', function() {
-  var binarySearchTree;
+  let binarySearchTree;
 
   beforeEach(function() {
     binarySearchTree = new BinarySearchTree(5);
+    // binarySearchTree = Object.create(BinarySearchTree.prototype(5));
   });
 
   it('should have methods named "add", "contains", "depthFirstPre", "depthFirstIn", "depthFirstPost", "breadthFirst"', function() {
@@ -34,7 +35,7 @@ describe('Binary Search Tree', function() {
     // expect(binarySearchTree.contains(8)).to.equal(false);
   });
 
-  xit('should execute a callback on every value in a tree using "depthFirstPre"', function(){
+  it('should execute a callback on every value in a tree using "depthFirstPre"', function(){
     var array = [];
     var func = function(value){ array.push(value); };
     binarySearchTree.add(2);
@@ -45,7 +46,7 @@ describe('Binary Search Tree', function() {
     expect(array).to.eql([ 5, 2, 3, 7, 6 ]);
   });
 
-  xit('should execute a callback on every value in a tree using "depthFirstIn"', function(){
+  it('should execute a callback on every value in a tree using "depthFirstIn"', function(){
     var array = [];
     var func = function(value){ array.push(value); };
     binarySearchTree.add(2);
@@ -56,7 +57,7 @@ describe('Binary Search Tree', function() {
     expect(array).to.eql([2,3,5,6,7]);
   });
 
-  xit('should execute a callback on every value in a tree using "depthFirstPost"', function(){
+  it('should execute a callback on every value in a tree using "depthFirstPost"', function(){
     var array = [];
     var func = function(value){ array.push(value); };
     binarySearchTree.add(2);
@@ -67,7 +68,7 @@ describe('Binary Search Tree', function() {
     expect(array).to.eql([ 3, 2, 6, 7, 5 ]);
   });
 
-  xit('should execute a callback on every value in a tree using "breadthFirst"', function(){
+  it('should execute a callback on every value in a tree using "breadthFirst"', function(){
     var array = [];
     var func = function(value){ array.push(value); };
     binarySearchTree.add(2);

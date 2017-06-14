@@ -3,19 +3,19 @@
 
 function Stack() {
   this.storage = {};
-  this.index = 0;
+  this.length = 0;
 }
 
 Stack.prototype.push = function(value) {
-  this.storage[this.index] = value;
-  this.index += 1;
+  this.storage[this.length] = value;
+  this.length += 1;
 };
 
 Stack.prototype.pop = function() {
-  if (this.index > 0) {
-    const temp = this.storage[this.index - 1];
-    delete this.storage[this.index - 1];
-    this.index -= 1;
+  if (this.length > 0) {
+    const temp = this.storage[this.length - 1];
+    delete this.storage[this.length - 1];
+    this.length -= 1;
     return temp;
   }
 };
