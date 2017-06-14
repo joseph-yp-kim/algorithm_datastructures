@@ -70,19 +70,37 @@ BinarySearchTree.prototype.min = function() {
 // Extra Bonus
 // Return the maximum stored value
 BinarySearchTree.prototype.max = function() {
-
+  if (this.right) return this.right.max();
+  else return this.value;
 };
 
 // Extra Bonus
 // Return the height of the tree
 BinarySearchTree.prototype.height = function() {
-  
+  // create a height counter
+  let height = 0;
+  // create a queue and enqueue the root node
+  const queue = [];
+  queue.push(this);
+  // loop
+  while (true) {
+    let nodeCount = queue.length;
+    if (nodeCount > 0) {
+      height += 1;
+      while (nodeCount > 0) {
+        let node = queue.shift();
+        nodeCount -= 1;
+        if (node.left) queue.push(node.left);
+        if (node.right) queue.push(node.right);
+      }
+    } else return height - 1;
+  }
 };
 
 // Extra Bonus
 // Remove an item from the tree and ensure that the children of the item are properly repositioned
 BinarySearchTree.prototype.remove = function(item) {
-
+  
 };
 
 module.exports = BinarySearchTree;
