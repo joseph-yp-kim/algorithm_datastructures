@@ -88,8 +88,16 @@ describe('Binary Search Tree', function() {
     expect(binarySearchTree.min()).to.eql(2);
   });
 
+  it('max method should return correct maximum value', function() {
+    binarySearchTree.add(2);
+    binarySearchTree.add(3);
+    binarySearchTree.add(7);
+    binarySearchTree.add(6);
+    expect(binarySearchTree.max()).to.eql(7);
+  });
+
   // remove x to enable test
-  xit('height method should return correct height', function() {
+  it('height method should return correct height', function() {
     binarySearchTree.left = new BinarySearchTree(3);
     binarySearchTree.left.left = new BinarySearchTree(1);
     expect(binarySearchTree.height()).to.eql(2);
