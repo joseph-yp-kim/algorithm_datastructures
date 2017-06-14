@@ -79,6 +79,15 @@ describe('Binary Search Tree', function() {
     expect(array).to.eql([5,2,7,3,6]);
   });
 
+    // remove x to enable test
+  it('min method should return correct minimum value', function() {
+    binarySearchTree.add(2);
+    binarySearchTree.add(3);
+    binarySearchTree.add(7);
+    binarySearchTree.add(6);
+    expect(binarySearchTree.min()).to.eql(2);
+  });
+
   // remove x to enable test
   xit('height method should return correct height', function() {
     binarySearchTree.left = new BinarySearchTree(3);
