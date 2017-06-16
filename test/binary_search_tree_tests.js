@@ -126,10 +126,12 @@ describe('Binary Search Tree', function() {
     expect(binarySearchTree.height()).to.eql(2);
   });
 
-  xdescribe('remove method (make sure depthFirstIn passes first)', function() {
-    var tree;
+  describe('remove method (make sure depthFirstIn passes first)', function() {
+    var tree, array;
+    const func = function(value){ array.push(value); };
 
     beforeEach(function() {
+      array = [];
       tree = new BinarySearchTree(10);
       tree.add(5);
       tree.add(2);
@@ -150,28 +152,39 @@ describe('Binary Search Tree', function() {
     });
 
     it('should remove leaf nodes', function() {
-      expect(tree.toArray()).to.eql([ 0, 2, 3, 5, 7, 8, 9, 10, 11, 13, 15, 16, 17, 18, 20, 43, 100 ]);
+      tree.depthFirstIn(func);
+      expect(array).to.eql([ 0, 2, 3, 5, 7, 8, 9, 10, 11, 13, 15, 16, 17, 18, 20, 43, 100 ]);
+      array = [];
       tree.remove(3);
-      expect(tree.toArray()).to.eql([ 0, 2, 5, 7, 8, 9, 10, 11, 13, 15, 16, 17, 18, 20, 43, 100 ]);
+      tree.depthFirstIn(func);
+      expect(array).to.eql([ 0, 2, 5, 7, 8, 9, 10, 11, 13, 15, 16, 17, 18, 20, 43, 100 ]);
     });
 
     it('should remove nodes that have one child', function() {
       tree.remove(7);
-      expect(tree.toArray()).to.eql([ 0, 2, 3, 5, 8, 9, 10, 11, 13, 15, 16, 17, 18, 20, 43, 100 ]);
+      tree.depthFirstIn(func);
+      expect(array).to.eql([ 0, 2, 3, 5, 8, 9, 10, 11, 13, 15, 16, 17, 18, 20, 43, 100 ]);
     });
 
     it('should remove nodes that have two children where the right child has no left child', function() {
       tree.remove(5);
-      expect(tree.toArray()).to.eql([ 0, 2, 3, 7, 8, 9, 10, 11, 13, 15, 16, 17, 18, 20, 43, 100 ]);
+      tree.depthFirstIn(func);
+      console.log(array);
+      expect(array).to.eql([ 0, 2, 3, 7, 8, 9, 10, 11, 13, 15, 16, 17, 18, 20, 43, 100 ]);
       tree.remove(43);
-      expect(tree.toArray()).to.eql([ 0, 2, 3, 7, 8, 9, 10, 11, 13, 15, 16, 17, 18, 20, 100 ]);
+      array = [];
+      tree.depthFirstIn(func);
+      expect(array).to.eql([ 0, 2, 3, 7, 8, 9, 10, 11, 13, 15, 16, 17, 18, 20, 100 ]);
     });
 
     it('should remove nodes with two children where the right child has two children', function() {
       tree.remove(15);
-      expect(tree.toArray()).to.eql([ 0, 2, 3, 5, 7, 8, 9, 10, 11, 13, 16, 17, 18, 20, 43, 100 ]);
+      tree.depthFirstIn(func);
+      expect(array).to.eql([ 0, 2, 3, 5, 7, 8, 9, 10, 11, 13, 16, 17, 18, 20, 43, 100 ]);
+      array = [];
       tree.remove(20);
-      expect(tree.toArray()).to.eql([ 0, 2, 3, 5, 7, 8, 9, 10, 11, 13, 16, 17, 18, 43, 100 ]);
+      tree.depthFirstIn(func);
+      expect(array).to.eql([ 0, 2, 3, 5, 7, 8, 9, 10, 11, 13, 16, 17, 18, 43, 100 ]);
     });
 
   });

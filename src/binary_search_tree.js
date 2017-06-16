@@ -100,7 +100,41 @@ BinarySearchTree.prototype.height = function() {
 // Extra Bonus
 // Remove an item from the tree and ensure that the children of the item are properly repositioned
 BinarySearchTree.prototype.remove = function(item) {
-  
+  let prev, direction;
+  let current = this;
+  while (current.value !== item) {
+    if (item < current.value) {
+      prev = current;
+      direction = 'left';
+      current = current.left;
+    }
+    if (item > current.value) {
+      prev = current;
+      direction = 'right';
+      current = current.right;
+    }
+  }
+  if (current.left && current.right) {
+    let prev1 = current;
+    let max = current.left;
+    while (max.right) {
+      prev1 = max;
+      max = max.right;
+    }
+    if (max.left) {
+      current.value = max.value;
+      prev1.left = max.left;
+    } else {
+      current.value = max.value;
+      prev1.right = null;
+    }
+  } else if (current.left) {
+    direction  === 'left' ? prev.left = current.left : prev.right = current.left;
+  } else if (current.right) {
+    direction  === 'left' ? prev.left = current.right : prev.right = current.right;
+  } else {
+    direction  === 'left' ? prev.left = null : prev.right = null;
+  }
 };
 
 module.exports = BinarySearchTree;
